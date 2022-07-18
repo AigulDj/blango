@@ -4,7 +4,7 @@ from django.utils.html import format_html
 
 from django.contrib.auth import get_user_model
 
-from django import templates
+from django import template
 
 user_model= get_user_model()
 register = template.Library()
@@ -24,7 +24,7 @@ def author_details(author, current_user=None):
     name = f"{author.username}"
 
   if author.email:
-    email = escape(author.email)
+    email = author.email
     prefix = format_html(f'<a href="mailto:{email}">')
     suffix = format_html("</a>")
   else:
